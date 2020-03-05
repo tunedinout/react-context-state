@@ -8,6 +8,7 @@ class ItemList extends React.Component {
    static contextType = GlobalContext;
 
     render(){
+        //can even get the setters for the state variable
         let state = this.context;
         const { items } = state;
         

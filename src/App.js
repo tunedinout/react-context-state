@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import  { Provider, Consumer } from './context/globalContext'
+import  { Provider } from './context/globalContext'
 import ItemList from './item/itemList';
-import Form from './form/formFuncError';
+import Form from './form/form';
 import ColorList from './color/colorList';
 
 
