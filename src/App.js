@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import  { Provider } from './context/globalContext'
+import  { Provider, ProviderNew } from './context/globalContext'
 import ItemList from './item/itemList';
 import Form from './form/form';
 import ColorList from './color/colorList';
@@ -24,13 +24,13 @@ class App extends React.Component {
   }
   render(){
     return (
-      <Provider value={this.state}>
+      <ProviderNew store={this.state}>
         <div className="App">
           <Form/>
           <ItemList/>
           <ColorList/>
         </div>
-      </Provider>
+      </ProviderNew>
       
     );
   }

@@ -28,5 +28,6 @@ function Form() {
         </Consumer>
     )
 }
- 
+
+console.log(Form.prototype);
 export default Form;
