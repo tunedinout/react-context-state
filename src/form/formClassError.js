@@ -1,41 +1,45 @@
 import React from 'react';
 import './form.css'
-import { GlobalContext, Consumer } from '../context/globalContext';
+import { Consume } from '../context/globalContext';
 
 class Form extends React.Component {
-//    const {setColors,setItems} = useContext(GlobalContext);
+    //    const {setColors,setItems} = useContext(GlobalContext);
     state = {
-        inputValue : '',
+        inputValue: '',
         setInputValue: (newValue) => {
-            this.setState({inputValue: newValue});
+            this.setState({ inputValue: newValue });
         }
     }
-    render(){
-            const {inputValue,setInputValue} = this.state;
-            const {setItems,setColors} = this.context;
-            
+    render() {
+        const { inputValue, setInputValue } = this.state;
+        const { setItems, setColors } = this.props;
+        console.log(this.props);
         return (
             <div className="data-form">
 
-            <input type='text' value={ inputValue } onChange={(e)=>setInputValue(e.target.value)}  />
-            <button
-                className="submit-btn"
-                type='submit'
-                onClick={() => {
-                    setItems(inputValue);
-                    setInputValue('');
-                }} > Add Item </button>
-            <button
-                className="submit-btn_color"
-                type='submit'
-                onClick={() => {
-                    setColors(inputValue);
-                    setInputValue('');
-                }} > Add Color </button>
-        </div>
+                <input type='text' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+                <button
+                    className="submit-btn"
+                    type='submit'
+                    onClick={() => {
+                        setItems(inputValue);
+                        setInputValue('');
+                    }} > Add Item </button>
+                <button
+                    className="submit-btn_color"
+                    type='submit'
+                    onClick={() => {
+                        setColors(inputValue);
+                        setInputValue('');
+                    }} > Add Color </button>
+            </div>
         )
     }
-   
+
 }
-Form.contextType = GlobalContext;
-export default Form;
+const mapStateToProps = () => { }
+const mapActionsToProps = (state) => ({
+    setItems: state.setItems,
+    setColors: state.setColors,
+})
+export default Consume(mapStateToProps, mapActionsToProps, Form);
