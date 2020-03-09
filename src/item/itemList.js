@@ -1,13 +1,14 @@
 import React from 'react';
 import Item from './item';
 import './item.css'
-import { Consume } from '../context/globalContext';
+import { connect } from '../context/connect';
 
 
 class ItemList extends React.Component {
 
     render() {
 
+        console.log(this.props);
         const { items } = this.props;
         return (
 
@@ -26,7 +27,4 @@ class ItemList extends React.Component {
 const mapStateToProps = (state) => ({
     items: state.items
 })
-const mapActionsToProps = (state) => ({
-    setItems: state.setItems
-})
-export default Consume(mapStateToProps, mapActionsToProps, ItemList);
+export default connect(mapStateToProps)(ItemList);
