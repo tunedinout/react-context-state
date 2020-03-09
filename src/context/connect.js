@@ -51,4 +51,8 @@ export function connect(func1, func2) {
             handleConnectArgError(doubleArgumentError);
 
     }
+    else
+        handleConnectArgError('Only Two arguments in connect....!!')
+
+
 }
